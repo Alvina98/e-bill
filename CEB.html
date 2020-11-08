@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CEB</title>
+      	
+		<script>
+		function clear1(){
+			document.getElementById("units").value = "";
+			document.getElementById("result").value = "00.00";
+		}
+		
+		function calc () {
+			var units = Number(document.getElementById("units").value);
+			var results;
+			if(units<=60){
+				results = units * 7.85;
+			}
+			else if(units<=90){
+				results = ((units-60) * 10)+ (60 * 7.85);
+			}
+			else if(units<=120){
+				results = ((units-90) * 27.75) + (60 * 7.85) + (30 * 10);
+			}
+			else if(units<=180){
+				results = ((units-120) * 32) + (30 * 27.75) + (30 * 10) + (60 * 7.85)+480;
+			}
+			else if(units>180){
+				results = ((units-180) * 50) + (60 * 32) + (30 * 27.75) + (30 * 10) + (60 * 7.85);
+			}
+			results=(results.toFixed(2));
+			document.getElementById("result").innerHTML = "Your Bill Amount is :  " + results + " Rs";
+		}
+		</script>
+		
+		<style>
+		.mystyle{
+			width: 400px;
+			height: 150px; 
+			background: #80c64a;
+			background: -webkit-linear-gradient(45deg, #56ab2f, #a8e063);
+			background: -o-linear-gradient(45deg, #56ab2f, #a8e063);
+			background: -moz-linear-gradient(45deg, #56ab2f, #a8e063);
+			background: linear-gradient(45deg, #56ab2f, #a8e063);
+			border-radius: 10px;
+			overflow: hidden;
+			padding: 20px
+			}
+			
+		h4 {
+			color:#0000FF;
+			font-weight: bold;
+			font-family: Poppins-Bold;
+			font-size: 15px;
+			line-height: 1.2;
+			text-align: center;
+			text-transform: uppercase;
+			}
+    		
+		</style>
+    </head>
+	
+    <body>
+        <center>
+            <h4>Domestic Electricity Bill Calculator</h4>
+        <table>
+            <tr>
+                <td colspan="3"><center>
+                    <div class="mystyle">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label>No.of Units used : </label> <input id="units" placeholder="Units" style="text-align:right"/>
+                                </td>
+                                <td>
+                                    <label> KWh</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:right">
+                                    <br><div style="margin-left:200px;"><button  onclick="clear1()">Clear</button></div>
+                                </td>
+                                <td>
+                        
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:right">
+                                    <br><div><input class = "inputstyle" type="button"  value="Calculate My Bill" onclick="calc()"></input>
+                                </td>
+                                <td>
+                        
+                                </td>
+                            </tr>
+                            <tr >
+                                <td>
+                                     <pre style="text-align:right"  id="result">Your Bill Amount is :       00.00 Rs</pre>
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                             
+                
+                        </table>
+                       
+            
+                    </div></center>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left">
+                    <p><a href ="https://roar.media/english/life/reports/electricity-bill-calculated-analysis">More information on how my bill is <br>Calculated</a></p>
+                </td>
+                <td>
+                    <pre>        </pre>
+                </td>
+               
+                <td valign="top" style="text-align:right" >
+                    <p><a href="https://ceb.lk/bill_calculation/en">Go to CEB web site</a><br></p>
+                </td>
+            </tr>
+        </table>
+        
+      
+        <h4>Created By:Alvina</h4>
+    </center>           
+    </body>
+</html>
